@@ -23,19 +23,24 @@ public class MainView {
     private VBox createSidebar() {
         VBox sidebar = new VBox(10); // Spasi antar tombol 10px
         sidebar.setPadding(new Insets(15));
-        sidebar.setStyle("-fx-background-color: #2c3e50;"); // Warna gelap seperti frame profesional
+        sidebar.getStyleClass().add("sidebar"); // Menggunakan class CSS
 
         Label menuLabel = new Label("MENU UTAMA");
-        menuLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
+        menuLabel.getStyleClass().add("menu-label"); // Menggunakan class CSS
 
         Button btnHome = new Button("Dashboard");
         Button btnData = new Button("Data Mahasiswa");
         Button btnSettings = new Button("Pengaturan");
 
-        // Mengatur agar tombol memenuhi lebar sidebar
+        // Mengatur agar tombol memenuhi lebar sidebar dan menambahkan class CSS
         btnHome.setMaxWidth(Double.MAX_VALUE);
+        btnHome.getStyleClass().add("nav-button");
+
         btnData.setMaxWidth(Double.MAX_VALUE);
+        btnData.getStyleClass().add("nav-button");
+
         btnSettings.setMaxWidth(Double.MAX_VALUE);
+        btnSettings.getStyleClass().add("nav-button");
 
         sidebar.getChildren().addAll(menuLabel, btnHome, btnData, btnSettings);
         return sidebar;
@@ -47,7 +52,7 @@ public class MainView {
         contentArea.setPadding(new Insets(20));
 
         Label welcomeText = new Label("Selamat Datang di Aplikasi");
-        welcomeText.setStyle("-fx-font-size: 20px;");
+        welcomeText.setStyle("-fx-font-size: 20px;"); // Inline style kecil dpp, tapi sebaiknya dipindah juga
 
         contentArea.getChildren().add(welcomeText);
         return contentArea;
